@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown to Melanie 💕</title>
+
+  <!-- PWA Meta -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1a0a1a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Melanie 💕">
+
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating decorative elements -->
+  <div class="floaters" aria-hidden="true">
+    <span class="floater">🍄</span>
+    <span class="floater">👁️</span>
+    <span class="floater">🖤</span>
+    <span class="floater">🍄</span>
+    <span class="floater">💕</span>
+    <span class="floater">👁️</span>
+    <span class="floater">🪆</span>
+    <span class="floater">🍄</span>
+    <span class="floater">🖤</span>
+    <span class="floater">💕</span>
+  </div>
+
+  <main class="container">
+    <!-- Personalized greeting -->
+    <div id="greeting" class="greeting"></div>
+
+    <!-- Title -->
+    <h1 class="title">Countdown to Melanie 💕</h1>
+    <p class="subtitle">Hades Tour &mdash; August 14</p>
+    <p class="location">Englewood, California</p>
+
+    <!-- Countdown display -->
+    <div class="countdown" id="countdown">
+      <div class="time-block">
+        <span class="time-value" id="days">000</span>
+        <span class="time-label">Days</span>
+      </div>
+      <div class="separator">:</div>
+      <div class="time-block">
+        <span class="time-value" id="hours">00</span>
+        <span class="time-label">Hours</span>
+      </div>
+      <div class="separator">:</div>
+      <div class="time-block">
+        <span class="time-value" id="minutes">00</span>
+        <span class="time-label">Minutes</span>
+      </div>
+      <div class="separator">:</div>
+      <div class="time-block">
+        <span class="time-value" id="seconds">00</span>
+        <span class="time-label">Seconds</span>
+      </div>
+    </div>
+
+    <!-- Message shown when countdown reaches zero -->
+    <div class="finale" id="finale" hidden>
+      <h2>🖤 It's Time 🖤</h2>
+      <p>The Hades Tour begins now. Have a magical night.</p>
+    </div>
+
+    <!-- Name input for personalized greeting -->
+    <div class="name-section" id="nameSection">
+      <button class="name-btn" id="nameBtn">✨ Personalize</button>
+      <div class="name-input-wrap" id="nameInputWrap" hidden>
+        <input type="text" id="nameInput" placeholder="Enter your name" maxlength="24" autocomplete="off">
+        <button class="name-save" id="nameSave">Save</button>
+      </div>
+    </div>
+
+    <!-- Share button -->
+    <button class="share-btn" id="shareBtn">Share 🔗</button>
+  </main>
+
+  <!-- Confetti canvas (used when countdown hits zero) -->
+  <canvas id="confetti" class="confetti-canvas"></canvas>
+
+  <script src="app.js"></script>
+</body>
+</html>
