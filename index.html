@@ -692,7 +692,7 @@
       </div>
 
       <div class="slats">
-        <div class="slat"><span class="slat-label">Days</span>   <span class="slat-value"><span class="digit" id="d0">0</span><span class="digit" id="d1">0</span></span></div>
+        <div class="slat"><span class="slat-label">Days</span>   <span class="slat-value"><span class="digit" id="d0">0</span><span class="digit" id="d1">0</span><span class="digit" id="d2">0</span></span></div>
         <div class="slat"><span class="slat-label">Hours</span>  <span class="slat-value"><span class="digit" id="h0">0</span><span class="digit" id="h1">0</span></span></div>
         <div class="slat"><span class="slat-label">Minutes</span><span class="slat-value"><span class="digit" id="m0">0</span><span class="digit" id="m1">0</span></span></div>
         <div class="slat"><span class="slat-label">Seconds</span><span class="slat-value"><span class="digit" id="s0">0</span><span class="digit" id="s1">0</span></span></div>
@@ -752,17 +752,18 @@
   }
   const target = getTarget();
   const digits = {
-    d0: document.getElementById('d0'), d1: document.getElementById('d1'),
+    d0: document.getElementById('d0'), d1: document.getElementById('d1'), d2: document.getElementById('d2'),
     h0: document.getElementById('h0'), h1: document.getElementById('h1'),
     m0: document.getElementById('m0'), m1: document.getElementById('m1'),
     s0: document.getElementById('s0'), s1: document.getElementById('s1')
   };
-  function setUnit(prefix, n) {
-    const s = String(n).padStart(2, '0');
-    const a = digits[prefix + '0'];
-    const b = digits[prefix + '1'];
-    if (a.textContent !== s[0]) a.textContent = s[0];
-    if (b.textContent !== s[1]) b.textContent = s[1];
+  function setUnit(prefix, n, len) {
+    len = len || 2;
+    const s = String(n).padStart(len, '0');
+    for (let i = 0; i < len; i++) {
+      const el = digits[prefix + i];
+      if (el && el.textContent !== s[i]) el.textContent = s[i];
+    }
   }
   function tick() {
     let diff = Math.max(0, target.getTime() - Date.now());
@@ -770,7 +771,7 @@
     const hours = Math.floor(diff / 3600000); diff -= hours * 3600000;
     const mins = Math.floor(diff / 60000); diff -= mins * 60000;
     const secs = Math.floor(diff / 1000);
-    setUnit('d', Math.min(99, days));
+    setUnit('d', days, 3);
     setUnit('h', hours);
     setUnit('m', mins);
     setUnit('s', secs);
