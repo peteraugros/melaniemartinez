@@ -11,15 +11,12 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Hades Tour">
 <meta name="theme-color" content="#0a0708">
-<meta name="description" content="A countdown to Melanie Martinez's Hades Tour, August 14 in Inglewood.">
 
-<!-- Real PWA manifest -->
-<link rel="manifest" href="manifest.json">
+<!-- Inline manifest as data URL so the file stays self-contained -->
+<link rel="manifest" href="data:application/manifest+json;charset=utf-8,%7B%22name%22%3A%22Hades%20Tour%20Countdown%22%2C%22short_name%22%3A%22Hades%20Tour%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22orientation%22%3A%22portrait%22%2C%22background_color%22%3A%22%230a0708%22%2C%22theme_color%22%3A%22%230a0708%22%7D">
 
-<!-- Real PNG icons for iOS / Android home screens -->
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+<!-- Apple touch icon: small SVG of the painting in a frame, used when added to home screen -->
+<link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><defs><linearGradient id='f' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%234a2c18'/><stop offset='0.5' stop-color='%231a0d08'/><stop offset='1' stop-color='%236b4222'/></linearGradient><radialGradient id='g' cx='0.5' cy='0.5'><stop offset='0' stop-color='%23ff7a24'/><stop offset='1' stop-color='%23110608'/></radialGradient></defs><rect width='180' height='180' fill='%23050204'/><rect x='10' y='10' width='160' height='160' fill='url(%23g)'/><rect x='20' y='20' width='140' height='140' fill='none' stroke='url(%23f)' stroke-width='8'/><text x='90' y='105' text-anchor='middle' font-family='serif' font-size='28' font-weight='900' fill='%23f5e7c8'>HADES</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Pirata+One&family=Special+Elite&display=swap" rel="stylesheet">
 <style>
   *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -911,15 +908,6 @@
       }
     }
   });
-
-  // --- Register the service worker for offline support ---
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js').catch(err => {
-        console.warn('Service worker registration failed:', err);
-      });
-    });
-  }
 </script>
 </body>
 </html>

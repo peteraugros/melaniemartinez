@@ -1,24 +1,41 @@
 {
-  "name": "Countdown to Melanie 💕",
-  "short_name": "Melanie 💕",
-  "description": "Countdown to the Melanie Martinez Hades Tour – August 14, 2026",
-  "start_url": ".",
+  "name": "Hades Tour Countdown",
+  "short_name": "Hades Tour",
+  "description": "A countdown to Melanie Martinez's Hades Tour, August 14 in Inglewood.",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#1a0a1a",
-  "theme_color": "#1a0a1a",
   "orientation": "portrait",
+  "background_color": "#0a0708",
+  "theme_color": "#0a0708",
+  "categories": ["entertainment", "music"],
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "icon-512.png",
+      "src": "icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ]
+  ],
+  "share_target": {
+    "action": "./index.html",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
 }
