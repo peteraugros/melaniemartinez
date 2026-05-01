@@ -247,6 +247,9 @@
     flex-direction: column;
     width: 100%;
     gap: clamp(3px, 1.1vw, 7px);
+    contain: layout style;
+    isolation: isolate;
+    transform: translateZ(0);
   }
   .slat {
     display: flex;
@@ -263,7 +266,7 @@
       inset 0 2px 4px rgba(0,0,0,0.9),
       inset 0 -1px 2px rgba(60, 30, 12, 0.4);
     padding: 0.25em 0.5em;
-    height: clamp(34px, 9vw, 54px);
+    height: clamp(44px, 12vw, 68px);
     position: relative;
   }
   .slat::before {
@@ -303,8 +306,8 @@
     display: inline-block;
     width: 0.7em;
     text-align: center;
-    contain: strict;
-    height: 1em;
+    contain: layout style;
+    height: 1.3em;
   }
 
   /* Embers fill the entire background like a roaring fire.
